@@ -1,2 +1,2 @@
 # NEAT
-My implementation of NEAT (not finished)
+My implementation of NEAT

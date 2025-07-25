@@ -233,6 +233,7 @@ class Species:
             first, second = max([first, second], key=lambda l: l.fitness), min([first, second], key=lambda l: l.fitness)
             child = first.crossover(second)
             child.mutate()
+            self.members.append(child)
 
 
 class Population:

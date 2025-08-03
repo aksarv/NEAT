@@ -121,9 +121,9 @@ class Genome:
                 child.genes[gene_i] = self.genes[gene_i]
         return child
 
-    # after crossover gives a child from two parents a sequence of mutations will be applied randomly
+    # after crossover gives a child from two parents, a sequence of mutations will be applied randomly
     def mutate(self):
-        # either the weight is changed by a small gaussian or completely reassignmed
+        # either the weight is changed by a small gaussian or completely reassigned
         if np.random.random() < PROB_MUTATE_WEIGHTS:
             random_gene = np.random.choice(self.genes.keys())
             self.genes[random_gene] += np.random.normal(loc=0, scale=0.1)
@@ -150,9 +150,9 @@ class Genome:
             new_node = max(self.nodes.keys()) + 1
             self.nodes[new_node] = "h"
             self.genes[(from_node, new_node)] = Gene(from_node, new_node)
-            self.genes[(new_node, to_node)] = Gene(from_node, new_node)
+            self.genes[(new_node, to_node)] = Gene(new_node, to_node)
 
-    # needed for speciation - counts the number of disjoint and excess genes between two genomes
+    # needed for checking speciation - counts the number of disjoint and excess genes between two genomes
     def count_disjoint_excess_weight_diff(self, genome):
         max_innov = max(max([g.innov for g in self.genes.values()]), max([g.innov for g in genome.genes.values()]))
         disjoint, excess = 0, 0

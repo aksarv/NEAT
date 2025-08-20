@@ -206,7 +206,7 @@ class Species:
             return True
         return False
 
-    # select parents proportional to their fitness
+    # select parents with a likelihood proportional to their fitness
     def select_parent(self):
         rand = np.random.random()
         total_fitness = sum(m.fitness for m in self.members)
